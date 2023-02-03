@@ -49,5 +49,7 @@
 				<string>MunkiImporter</string>
 			</dict>
 		</array>
+		<key>ParentRecipe</key>
+		<string>com.github.jmarkIT.download.LedgerLive</string>
 	</dict>
 </plist>

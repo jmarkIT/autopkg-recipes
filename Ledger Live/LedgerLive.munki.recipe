@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Description</key>
+		<string>Imports the latest version of Ledger Live into Munki</string>
+		<key>Identifier</key>
+		<string>com.github.jmarkIT.munki.LedgerLive</string>
+		<key>Input</key>
+		<dict>
+			<key>NAME</key>
+			<string>LedgerLive</string>
+			<key>MUNKI_REPO_SUBDIR</key>
+			<string>apps/%NAME%</string>
+			<key>pkginfo</key>
+			<dict>
+				<key>catalogs</key>
+				<array>
+					<string>testing</string>
+				</array>
+				<key>description</key>
+				<string>Ledger Live is your one-stop shop to buy crypto, grow your assets, and
+					manage NFTs.</string>
+				<key>display_name</key>
+				<string>Ledger Live</string>
+				<key>name</key>
+				<string>%NAME%</string>
+				<key>developer</key>
+				<string>Ledger SAS</string>
+				<key>unattended_install</key>
+				<true />
+				<key>unattended_uninstall</key>
+				<true />
+			</dict>
+		</dict>
+		<key>MinimumVersion</key>
+		<string>1.0</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_path</key>
+					<string>%pathname%</string>
+					<key>repo-subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+			</dict>
+		</array>
+	</dict>
+</plist>

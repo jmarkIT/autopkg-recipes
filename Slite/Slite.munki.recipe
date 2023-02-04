@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports the most recent version of Slite into Munki</string>
+	<key>Identifier</key>
+	<string>com.github.jmarkIT.munki.Slite</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Slite</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>SUPPORTED_ARCH</key>
+		<string>x86_64</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Slite is a modern knowledge base that helps teams escape the chaos of information overload.</string>
+			<key>display_name</key>
+			<string>Slite</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>developer</key>
+			<string>Slite</string>
+			<key>supported_architectures</key>
+			<array>
+				<string>%SUPPORTED_ARCH%</string>
+			</array>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+	<key>ParentRecipe</key>
+	<string>com.github.jmarkIT.download.Slite</string>
+</dict>
+</plist>

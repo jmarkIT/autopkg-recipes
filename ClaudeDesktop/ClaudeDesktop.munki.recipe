@@ -7,11 +7,11 @@
     <string
         >Downloads the latest version of Claude and imports it into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.jmarkIT.munki.Claude</string>
+    <string>com.github.jmarkIT.munki.ClaudeDesktop</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Claude</string>
+        <string>ClaudeDesktop</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/%NAME%</string>
         <key>pkginfo</key>
@@ -38,7 +38,7 @@
     <key>MinimumVersion</key>
     <string>1.1</string>
     <key>ParentRecipe</key>
-    <string>com.github.jmarkIT.download.Claude</string>
+    <string>com.github.jmarkIT.download.ClaudeDesktop</string>
     <key>Process</key>
     <array>
         <dict>

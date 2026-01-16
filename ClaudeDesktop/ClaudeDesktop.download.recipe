@@ -22,6 +22,20 @@
 				<key>url</key>
 				<string
                     >https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect</string>
+                <key>curl_opts</key>
+                <array>
+                    <string>--location</string>
+                    <string>--fail</string>
+                    <string>--silent</string>
+                    <string>--show-error</string>
+                    <string>--user-agent</string>
+                    <string
+                        >Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</string>
+                    <string>--header</string>
+                    <string>Referer: https://claude.ai</string>
+                    <string>--header</string>
+                    <string>Accept: */*</string>
+                </array>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>

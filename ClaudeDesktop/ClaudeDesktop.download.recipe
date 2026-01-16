@@ -16,29 +16,54 @@
 	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
+	    <!-- 1) Download the JSON metadata -->
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string
-                    >https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect</string>
-                <key>curl_opts</key>
-                <array>
-                    <string>--location</string>
-                    <string>--fail</string>
-                    <string>--silent</string>
-                    <string>--show-error</string>
-                    <string>--user-agent</string>
-                    <string
-                        >Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</string>
-                    <string>--header</string>
-                    <string>Referer: https://claude.ai</string>
-                    <string>--header</string>
-                    <string>Accept: */*</string>
-                </array>
+				<string>https://claude.ai/api/desktop/darwin/universal/dmg/latest</string>
+				<key>filename</key>
+				<string>claude-latest.json</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+		</dict>
+		<!-- 2) Find the downloaded JSON on disk-->
+		<dict>
+		    <key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+			    <key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/claude-latest.json</string>
+			</dict>
+		</dict>
+		<!-- 3) Read JSON and pull out url + version-->
+		<dict>
+		    <key>Processor</key>
+			<string>PlistReader</string>
+			<key>Arguments</key>
+			<dict>
+			    <key>plist_path</key>
+				<string>%found_filename%</string>
+				<key>plist_keys</key>
+				<dict>
+				    <key>version</key>
+					<string>version</string>
+					<key>download_url</key>
+					<string>url</string>
+				</dict>
+			</dict>
+		</dict>
+		<!-- 4) Download the DMG from the extracted URL-->
+		<dict>
+		    <key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+			    <key>url</key>
+				<string>%download_url%</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>

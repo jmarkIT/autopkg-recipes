@@ -44,7 +44,7 @@
 			<string>PlistReader</string>
 			<key>Arguments</key>
 			<dict>
-			    <key>plist_path</key>
+			    <key>info_path</key>
 				<string>%found_filename%</string>
 				<key>plist_keys</key>
 				<dict>
